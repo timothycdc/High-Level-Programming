@@ -8,6 +8,8 @@ let anLst = [ 1.0; 0.5; 0.0; 0.25 ]
 // use List.mapi, which is like List.map but also gives the index of the element
 // example usecase: List.mapi (fun i x -> i, x) [ "a"; "b"; "c" ] // [(0, "a"); (1, "b"); (2, "c")]
 
+// Q36. (R***) Using the same approach as in the previous example, define a function, poly x, that calculates the value of the polynomial at x. If you're stuck, the next questions enumerate the steps you could take
+
 let poly x anLst =
     List.mapi (fun i anLstItem -> anLstItem * (x ** float i)) anLst
     |> List.reduce (+)
