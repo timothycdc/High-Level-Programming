@@ -2,7 +2,7 @@ let lst1 = [ 1..5 ]
 let lst2 = [ 6..10 ]
 let print x = printfn "%A" x
 
-// let makePair a b = (a, b)
+let makePair a b = (a, b)
 
 // let makeColumn lst x =
 //     let pairWithX = makePair x // Partially apply makePair.
