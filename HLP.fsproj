@@ -4,6 +4,12 @@
     <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="session2/05_D.fs" />
+    <Compile Include="session2/04_C.fs" />
+    <Compile Include="session2/03_B.fs" />
+    <Compile Include="session2/Tick2_partX.fs" />
+    <Compile Include="session2/A1.fs" />
+    <Compile Include="session2/prereq.fs" />
     <Compile Include="session1/q-24-25_exercise1.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
