@@ -9,16 +9,65 @@ let q0''' a b c =
     c
 
 let q1 = List.map (List.map (fun n -> n + 1))
+// (‘V > ‘W > list<’V> -> list<’W>) (‘T > ‘U > list<’T> -> list<’U>) (‘T -> ‘T)
+// (‘V > ‘W > list<’V> -> list<’W>) (list<’T> -> list<’T>)
+// (list<’T> > list<’T>  > list<’T>  -> list<’T>)
+// (‘T is int)
+
 
 let q1' = ()
 let q2 x y z w = (x y) (z w)
+// w : ‘w
+// z : ‘w -> ‘z
+// (z w) : ‘z
+
+// y : ‘y
+// x : ‘y ->‘x
+// (x y) :  ‘x
+
+// Unify ‘x |-> (‘z -> ‘x):
+// y : ‘y
+// x : ‘y ->’z ->‘x
+// (x y) :  ‘z ->‘x
+
+// (x y) (z w) : ‘x
+//  q2: (‘y -> ‘z ->‘x) -> ‘y -> (‘w -> ‘z ) -> ‘w -> x
+
+
 let q4 f = id (fun x -> f x)
+// id: ‘T -> ‘T
+// f: (‘a -> ‘b)
+// (fun x -> f x): ‘a -> ‘b
+// Id (fun x -> f x): ‘a -> ‘b
+// (‘a -> ‘b) -> (‘a -> ‘b)
+
 
 let rec q5 n f = if n = 0 then id else f (q5 (n - 1) f)
+// f: ‘a -> ‘a
+// id: ‘T -> ‘T
+// q5: int -> (‘a-> ‘a) -> ‘a
+// since returning id, unify
+// q5: int -> ((‘a-> ‘a) -> ‘a-> ‘a)  -> (‘a-> ‘a)
+
 
 let q6 x y = x <| x y
+// x (x y)
+
+// y: ‘y
+// x: ‘y –> ‘x
+// x y: ‘x
+
+// how to unify this: ‘y |-> ‘x
+// y: ‘x
+// x: ‘x –> ‘x
+// x y: ‘x
+// x: (x y) : ‘x
+
+// so q6: (‘x -> ‘x) -> ‘x -> ‘x
+
 
 let q7 = [ 1, [] ]
+// q7: list<int * list<’a>>
 
 let q8 = id q7
 // passing q7 through id implicitly involves the type system
@@ -80,3 +129,25 @@ type Q14<'A, 'B> = Result<Result<'A, 'B>, Option<Result<'A, 'B>>> * bool
 // second level: a + b types for Result<'A,'B> and (a+b+1) for Option<Result<'A,'B>>
 // outermost Result is a + b + 1 + a + b = 2a + 2b + 1
 // since taking a tuple with bool, multiply by 2 = 2(2a + 2b + 1) = 4a + 4b + 2
+
+let q15 = 6 |> (*) 5 |> (+) ((*) 3 4) |> (-) 0
+
+// 42
+
+let q16 =
+    [ 0..10 ]
+    |> List.partition (fun n -> n % 3 = 0)
+    // splits at 3
+    |> fun (a, b) -> List.rev a @ b
+// [3;2;1;4;5;6;7;8;9;10]
+
+let q17 =
+    let thing x =
+        function
+        | x when x = 1 -> 2
+        | _ -> 4
+
+    thing 3 1
+// 4
+// how this works: the first x is a pattern match, the second x is a guard
+// feed in 3,
