@@ -201,3 +201,23 @@ let q18 =
 // (double double) (fun x -> x + 1) 3
 // f(f(f(f x))))))) (fun x -> x + 1) 3
 // 3 + 4x1 = 7
+
+
+let q19 =
+    let rec f a b =
+        match a, b with
+        | _, 0 -> 1
+        | 0, _ -> b * f 0 (b - 1)
+        | n, _ -> n + (f (n - 1) b)
+
+    f 3 4
+
+// (3,4) matches third case, 3 + f(2,4)
+// (2,4) matches third case, 2 + f(1,4)
+// (1,4) matches third case, 1 + f(0,4)
+// (0,4) matches second case, 4 * f(0,3)
+// (0,3) matches second case, 3 * f(0,2)
+// (0,2) matches second case, 2 * f(0,1)
+// (0,1) matches second case, 1 * f(0,0)
+// (0,0) matches first case, 1
+// 3 + 2 + 1 + 4*3*2*1 = 30

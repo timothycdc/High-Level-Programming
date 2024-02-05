@@ -1,9 +1,9 @@
 # Team-Based Learning Material
 
 ## TBL1
-[Transforms Notes](https://github.com/tomcl/fsharp-transforms/blob/main/README.md)
-[ISSIE Coding Guidelines](https://github.com/tomcl/issie/wiki/1---Coding-guidelines-for-ISSIE)
-[Slides (requires login)](https://intranet.ee.ic.ac.uk/t.clarke/hlp/lectures/tbl24-1.pdf)
+- [Transforms Notes](https://github.com/tomcl/fsharp-transforms/blob/main/README.md)
+- [ISSIE Coding Guidelines](https://github.com/tomcl/issie/wiki/1---Coding-guidelines-for-ISSIE)
+- [Slides (requires login)](https://intranet.ee.ic.ac.uk/t.clarke/hlp/lectures/tbl24-1.pdf)
 
 ### TBL1 Feedback
 Whole Cohort Feedback
@@ -166,5 +166,6 @@ let inline foldOverNonZeroSegs folder state wire =
 
 
 ## TBL2
-[Slides (requires login)](https://intranet.ee.ic.ac.uk/t.clarke/hlp/lectures/hlp24-tick3-starter.pdf)
-[Project Specification 2024 (requires login)](https://intranet.ee.ic.ac.uk/t.clarke/hlp/images/project2024%20specification.pdf)
+- [Slides (requires login)](https://intranet.ee.ic.ac.uk/t.clarke/hlp/lectures/hlp24-tick3-starter.pdf)
+- [Project Specification 2024 (requires login)](https://intranet.ee.ic.ac.uk/t.clarke/hlp/images/project2024%20specification.pdf)
+
