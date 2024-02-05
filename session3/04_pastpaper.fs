@@ -98,6 +98,11 @@ let q7 = [ 1, [] ]
 // value restriction
 // Either define 'q8' as a simple data term, make it a function with explicit arguments or, if you do not intend for it to be generic, add a type annotation.
 
+// Another example
+// let countElements lsts =
+//     (List.concat >> List.length) lsts // lsts needed to avoid value restriction
+//  see https://intranet.ee.ic.ac.uk/t.clarke/hlp/value-restriction.html (login required)
+
 
 let q9' = None
 // let q9 = 1 + Option.get q9'
@@ -114,7 +119,8 @@ let q11 b x y z = if b then x y else x z
 // unit is a type with only one value, ()
 // option is a type with two values, Some and None
 // number of distinct values of that type: 3
-//  unit, unit option, unit option option
+// note, rightmost option is the outermost wrapper
+//  Some (Some ()), Some None, None
 
 // type Q13 = Result<Unit, bool> * Result<bool -> bool -> bool, bool -> Unit>
 // Q13 is a tuple of two types
