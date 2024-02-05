@@ -103,6 +103,11 @@ let q7 = [ 1, [] ]
 //     (List.concat >> List.length) lsts // lsts needed to avoid value restriction
 //  see https://intranet.ee.ic.ac.uk/t.clarke/hlp/value-restriction.html (login required)
 
+// ######################################################################
+// to alleviate, either ensure RHS is pure (no side effects),
+// or list all explicit function args (no currying),
+// or add type annotation
+// ######################################################################
 
 let q9' = None
 // let q9 = 1 + Option.get q9'
@@ -204,8 +209,7 @@ let q18 =
 // (double id) (double double) (fun x -> x + 1) 3
 // (id (id x)) (double double) (fun x -> x + 1) 3
 // (double double) (fun x -> x + 1) 3
-// (double double) (fun x -> x + 1) 3
-// f(f(f(f x))))))) (fun x -> x + 1) 3
+// f(f(f(f x))) (fun x -> x + 1) 3
 // 3 + 4x1 = 7
 
 
@@ -227,3 +231,22 @@ let q19 =
 // (0,1) matches second case, 1 * f(0,0)
 // (0,0) matches first case, 1
 // 3 + 2 + 1 + 4*3*2*1 = 30
+
+
+
+
+let q11_new =
+    let g f x = x |> f |> f |> f
+    let a n m f = n f >> m f
+    a (a g g) (fun f x -> f x) (fun x -> x + 1) 0
+
+
+
+
+
+
+let q12_new =
+    let g f x = x |> f |> f |> f
+    let a n m f = n f >> m f
+    let b n m f = m (n f)
+    b (a g (b g g)) g (fun x -> x + 10) 0
