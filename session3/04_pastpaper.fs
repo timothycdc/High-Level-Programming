@@ -54,12 +54,12 @@ let q6 x y = x <| x y
 // x (x y)
 
 // y: ‘y
-// x: ‘y –> ‘x
+// x: ‘y -> ‘x
 // x y: ‘x
 
-// how to unify this: ‘y |-> ‘x
+// Unify with: ‘y |-> ‘x
 // y: ‘x
-// x: ‘x –> ‘x
+// x: ‘x -> ‘x
 // x y: ‘x
 // x: (x y) : ‘x
 

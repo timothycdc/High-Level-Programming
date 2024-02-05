@@ -32,8 +32,8 @@
         let f a b = a + b
         f (3+10) 4
         ```
-    Here the first parameter of `f` is `a`, and the first argument of `f` is `(3+4)` or `7`.
-    3. Simplified: paramater is the variable name passed into the function, argument is the (parameter's) value passed to the function.
+      Here the first parameter of `f` is `a`, and the first argument of `f` is `(3+4)` or `7`.
+   3. Simplified: parameter is the variable name passed into the function, argument is the (parameter's) value passed to the function.
 
 ## Part A
 - An exception can be raised that causes the program execution to stop and the function stack to unwind until either the outermost level is reached, and the program stops with an error, or code is found that can catch the exception.
