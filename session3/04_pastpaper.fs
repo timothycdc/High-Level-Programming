@@ -196,7 +196,8 @@ let q18 =
 
 
 // (double id) (double double) (fun x -> x + 1) 3
-// (double) (double double) (fun x -> x + 1) 3
-// (double double double) (fun x -> x + 1) 3
-// f(f(f(f(f(f(f(f x))))))) (fun x -> x + 1) 3
-// 3 + 8x1 = 11
+// (id (id x)) (double double) (fun x -> x + 1) 3
+// (double double) (fun x -> x + 1) 3
+// (double double) (fun x -> x + 1) 3
+// f(f(f(f x))))))) (fun x -> x + 1) 3
+// 3 + 4x1 = 7
